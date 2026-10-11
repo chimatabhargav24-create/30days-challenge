@@ -1,1 +1,58 @@
-
+#include <stdio.h>
+int main()
+{
+    int amount, type, distance;
+    int discount = 0, after_discount, dc = 0, total;
+    printf("enter purchase amount: ");
+    scanf("%d", &amount);
+    printf("customer type (1-Student, 2-Regular): ");
+    scanf("%d", &type);
+    printf("enter delivery distance in KM: ");
+    scanf("%d", &distance);
+    if (type == 1 && amount >= 2000)
+    {
+        discount = amount * 15 / 100;
+        printf("you are eligible for a 15%% discount\n");
+    }
+    else if (type==1 && amount<2000)
+    {
+        discount = amount * 10 / 100;
+        printf("you are eligible for a 10%% discount\n");
+    }
+    else if (type == 2 && amount >= 3000)
+    {
+        discount = amount * 8 / 100;
+        printf("you are eligible for an 8%% discount\n");
+    }
+    else if (type == 2 && amount < 3000)
+    {
+        discount = 0;
+        printf("you are not eligible for a discount\n");
+    }
+    else
+    {
+        printf("invalid customer type!\n");
+        return 0;
+    }
+    after_discount = amount - discount;
+if (distance <= 5)
+    {
+        dc = 40;
+    }
+    else if (distance <= 15)
+    {
+        dc = 70;
+    }
+    else
+    {
+        dc = 100;
+    }
+    total = after_discount + dc;
+    printf("\n===== FINAL BILL =====\n");
+    printf("purchase amount: Rs %d\n", amount);
+    printf("discount amount: Rs %d\n", discount);
+    printf("amount after discount: Rs %d\n", after_discount);
+    printf("delivery charge: Rs %d\n", dc);
+    printf("final payable amount: Rs %d\n", total);
+    return 0;
+}
